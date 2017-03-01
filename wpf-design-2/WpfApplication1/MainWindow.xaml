@@ -1,0 +1,128 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+
+
+    <Window.Resources>
+        
+        <sys:String x:Key="strConnect">Connect</sys:String>
+
+        <x:Array x:Key="ComboBoxItems" Type="sys:String">
+            <sys:String>Item #1</sys:String>
+            <sys:String>Item #2</sys:String>
+            <sys:String>Item #3</sys:String>
+        </x:Array>
+
+        <LinearGradientBrush x:Key="WindowBackgroundBrush">
+            <GradientStop Offset="0" Color="Silver"/>
+            <GradientStop Offset="1" Color="Gray"/>
+        </LinearGradientBrush>        
+        
+    </Window.Resources>
+
+    <Grid Name="grd1" Background="#FFFBF2C9" Width="Auto" Margin="5,5,5,5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="281*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="3,3,3,3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="25*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" BorderThickness="2" CornerRadius="3" BorderBrush="#FFF7F7F7" Background="#FF7CD5F0" Margin="1"></Border>
+            <Viewbox Grid.Column="0" Stretch="Uniform">
+                <Label VerticalAlignment="Center" HorizontalAlignment="Center">Operator:</Label>
+            </Viewbox>
+
+            <Border Grid.Column="1" BorderThickness="2" CornerRadius="3" BorderBrush="#FFF7F7F7" Background="#FFD6F07C" Margin="1"></Border>
+            <Viewbox Grid.Column="1" Stretch="Uniform">
+                <Label VerticalAlignment="Center" HorizontalAlignment="Center">- select -</Label>
+            </Viewbox>
+
+            <Border Grid.Column="2" BorderThickness="2" CornerRadius="3" BorderBrush="#FFF7F7F7" Background="#FF7CD5F0" Margin="1"></Border>
+            <Viewbox Grid.Column="2" Stretch="Uniform">
+                <Label VerticalAlignment="Center" HorizontalAlignment="Center">Date:</Label>
+            </Viewbox>
+
+            <Border Grid.Column="3" BorderThickness="2" CornerRadius="3" BorderBrush="#FFF7F7F7" Background="#FFD6F07C" Margin="1"></Border>
+            <Viewbox Grid.Column="3" Stretch="Uniform">
+                <Label VerticalAlignment="Center" HorizontalAlignment="Center">- select -</Label>
+            </Viewbox>
+
+        </Grid>
+
+
+        <Grid Grid.Row="1" Margin="3,3,3,3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="25*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0"  Click="Button_Click">
+                <Viewbox Stretch="Uniform">
+                    <Label Content="{StaticResource strConnect}"/>
+                </Viewbox> 
+            </Button>
+            <Button Grid.Column="1"  Click="Button_Click_1">
+                <Viewbox Stretch="Uniform">
+                    <Label Content="DTR-1"/>
+                </Viewbox>
+            </Button>
+            <Button Grid.Column="2"  Click="Button_Click_2">
+                <Viewbox Stretch="Uniform">
+                    <Label Content="DTR-0"/>
+                </Viewbox>
+            </Button>
+            <Button Grid.Column="3"  Click="Button_Click_3">
+                <Viewbox Stretch="Uniform">
+                    <Label Content="RTS-1"/>
+                </Viewbox>
+            </Button>
+            <Button Grid.Column="4"  Click="Button_Click_4">
+                <Viewbox Stretch="Uniform">
+                    <Label Content="RTS-0"/>
+                </Viewbox>
+            </Button>
+        </Grid>
+
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox Grid.Column="0" ItemsSource="{StaticResource ComboBoxItems}" />
+
+            <Button Grid.Column="1" Click="Button_Click_5">
+                <Viewbox Stretch="Uniform">
+                    <Label Content="Operator Window"/>
+                </Viewbox>
+            </Button>
+
+        </Grid>
+
+        
+        <RichTextBox Grid.Column="1" Grid.Row="3" Name="Commdata" Background="{DynamicResource WindowBackgroundBrush}"/>
+
+
+
+    </Grid>
+
+</Window>
